@@ -1,0 +1,134 @@
+-------Fetching data from employees table with SSMS basic queries----------
+
+---1)Fetch all the data from the employee’s table. 
+
+select *
+	from employees---107
+
+---2)Fetch the top ten rows from the employee’s table. 
+select top(10) * 
+     from employees
+
+---3)Fetch the Last name, job ID, and salary from the employee’s table. 
+
+select last_name,job_id,salary 
+   from employees
+
+---4)Fetch the first two rows from the employee’s table
+
+select top(2) * 
+   from employees
+
+---5)Fetch King's all information (column Last Name).
+
+select  * 
+   from employees
+   where last_name='king'
+
+---6)Assign alias for Employee ID, Last Name, and salary columns, show different patterns. 
+
+select  employee_id as id,
+        last_name as name,
+		salary as payment
+   from employees
+
+---7)Fetch Chen, Austin, and king’s employee id, last name, and salary from the employee’s table 
+
+select  employee_id,last_name,job_id,salary 
+   from employees
+   where last_name in('king','Chen','Austin')
+
+---8)Fetch all the information between 100 to 105 from the employee’s table 
+select  *
+       from employees
+   where employee_id between 100 and 105
+
+   select  *
+       from employees
+  where salary between 20000 and 25000
+
+---9)Fetch all the information using like operator(%) from employees table
+	---a) Find only the people their first name is ‘John’
+	select * 
+	from employees
+	where first_name='John'
+	---b) Find people their first name start with ‘Al’
+
+	     select * 
+		 from employees
+		 where first_name like 'Al%'
+
+		 select * 
+		 from employees
+		 where first_name like 'S%'
+	---c) Find people their first name end with ‘Al’
+	      
+		select * 
+		 from employees
+		 where first_name like '%Al'
+
+		 select * 
+		 from employees
+		 where first_name like '%Al%'
+		 --name with Al(even if in start,end, middle point)
+
+---10)Fetch employee salary of more than 16000 dollars 
+
+select *
+from employees 
+     where salary>16000
+
+---11)Fetch employee salary of 5000 and Less than 5000 dollars 
+select *
+    from employees 
+        where salary<=5000
+
+---12)Fetch employee’s data where the employee’s salary is more than 8000 and less than 9000
+select *
+     from employees 
+	   where salary>8000 AND salary<9000---6
+
+---13)Fetch employees from the table when salary will not show 8000 
+
+select * 
+    from employees
+	   where salary<> 8000 ---104
+
+	   --0r
+select * 
+    from employees
+	   where salary!= 8000 ---104
+
+
+---14)Fetch Unique Job id from the employee’s table
+select distinct job_id
+             from employees
+
+---15)Fetch data from employees, show the using ‘and’ / ‘or ’ operators
+select * 
+     from employees
+	 where salary> 8000 and salary< 9000 or last_name='chen'---6
+
+---16)Fetch employee id and salary in ascending and descending order.
+select employee_id,salary 
+     from employees
+	 order by salary asc
+
+select employee_id,salary
+     from employees
+	 order by salary desc
+
+---17)Fetch the last two rows from the employee table
+select top(2) * 
+      from employees 
+	  order by employee_id desc
+
+---18)Fetch data, who get the commission at the employee’s table.
+select *
+     from employees
+	 where commission_pct is not null ---35
+
+---19)Fetch data, who did not get the commission at the employee’s table. 
+select * 
+     from employees
+	 where commission_pct is null---72
