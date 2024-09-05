@@ -7,4 +7,4 @@ This repository contains basic SQL queries practised using an employee table. Th
 ## Topics Covered
 - Basic SELECT queries
 - Filtering with WHERE
-2. lol
+
